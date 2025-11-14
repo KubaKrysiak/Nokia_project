@@ -3,7 +3,7 @@ from typing import List, Dict
 from engines.base_engine import RegexEngine  
 from engines.hs_engine import HyperscanEngine 
 from FileReader import FileReader
-
+from pathlib import Path
 
 class FileScanner:
     """Klasa do skanowania plików z użyciem różnych silników regex"""
@@ -63,3 +63,27 @@ class FileScanner:
         except Exception as e:
             print(f"Błąd podczas skanowania pliku {filename}: {e}")
             raise
+    def scan_tree(self,root,follow_symlinks = False):
+        root = Path(root)
+        all_matches= []
+        if not root.exists():
+            print(f"[scan_tree] Katalog {root} nie istnieje")
+            return []
+
+        for dirpath, dirnames, filenames in os.walk(root, followlinks=follow_symlinks):
+            dirpath = Path(dirpath)
+
+            for name in filenames:
+                path = dirpath / name
+
+                #dodac dodatkowe opcje
+
+                try:
+                    file_matches = self.scan_file(str(path))
+                    all_matches.extend(file_matches)
+                except PermissionError:
+                    print(f"[scan_tree] Brak uprawnień do pliku: {path}")
+                except Exception as e:
+                    print(f"[scan_tree] Błąd przy pliku {path}: {e}")
+
+        return all_matches
