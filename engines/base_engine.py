@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
-from typing import List, Callable, Any
+from typing import List, Callable, Any, Iterable
+
 
 class RegexEngine(ABC):
     """Abstrakcyjna klasa bazowa dla silników regex"""
@@ -15,6 +16,6 @@ class RegexEngine(ABC):
         pass
     
     @abstractmethod
-    def scan_stream(self, data_chunks: List[bytes], callback: Callable, context: Any = None) -> None:
-        """Skanuje dane w trybie strumieniowym - przyjmuje listę chunków"""
+    def scan_stream(self, data_chunks: Iterable[bytes], callback: Callable, context: Any = None) -> None:
+        """Skanuje dane w trybie strumieniowym - przyjmuje iterowalne chunki danych"""
         pass
