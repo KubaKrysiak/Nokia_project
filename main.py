@@ -1,6 +1,6 @@
 import sys
 import os
-
+from file_regex.file_regex import FileRegex
 # Dodanie ścieżki do modułów
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
@@ -14,20 +14,10 @@ def main():
         sys.exit(1)
     
     filename = sys.argv[1]
-    
+    fr = FileRegex()
     
     # Wzorce do wyszukania
-    patterns = [
-        r'hello',
-        r'world',
-        r'test',
-        r'python',
-        r'\d{3}-\d{3}-\d{4}',  # numer telefonu
-        r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}',  # email
-        r"ERROR", 
-        r"WARNING", 
-        r"TODO",
-    ]
+    patterns = fr.elements()
     
     # Inicjalizacja skanera - użyj pełnej ścieżki
     scanner = file_scanner.FileScanner()
