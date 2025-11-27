@@ -8,7 +8,7 @@ from pathlib import Path
 
 
 class FileScanner:
-    """Klasa do skanowania plików z użyciem różnych silników regex"""
+    """Class for scanning files using various regex engines"""
     
     def __init__(self, engine: RegexEngine = None):
         """
@@ -16,16 +16,16 @@ class FileScanner:
             engine: Implementacja RegexEngine (domyślnie HyperscanEngine)
         """
         self.engine = engine or HyperscanEngine()
-        #self.engine = engine or PythonEngine()  #do porownania
+        #self.engine = engine or PythonEngine()  #for comparison
         self.results = []
     
     def compile_patterns(self, patterns: List[str]) -> None:
-        """Kompiluje wzorce jako bytes"""
+        """Compiles patterns as bytes"""
         pattern_bytes = [pattern.encode('utf-8') for pattern in patterns]
         self.engine.compile_patterns(pattern_bytes)
     
     def _match_callback(self, pattern_id: int, start: int, end: int, flags: int, filename: str):
-        """Callback wywoływany przy znalezieniu dopasowania
+        """Callback triggered when a match is found
         """
         if pattern_id < len(self.engine.patterns):
             pattern = self.engine.patterns[pattern_id]
@@ -68,7 +68,7 @@ class FileScanner:
         root = Path(root)
         all_matches= []
         if not root.exists():
-            print(f"[scan_tree] Katalog {root} nie istnieje")
+            print(f"[scan_tree] Directory {root} does not exist")
             return []
 
         for dirpath, dirnames, filenames in os.walk(root, followlinks=follow_symlinks):
@@ -77,14 +77,14 @@ class FileScanner:
             for name in filenames:
                 path = dirpath / name
 
-                #dodac dodatkowe opcje
+                #add additional options
 
                 try:
                     file_matches = self.scan_file(str(path))
                     all_matches.extend(file_matches)
                 except PermissionError:
-                    print(f"[scan_tree] Brak uprawnień do pliku: {path}")
+                    print(f"[scan_tree] No permissions for the file: {path}")
                 except Exception as e:
-                    print(f"[scan_tree] Błąd przy pliku {path}: {e}")
+                    print(f"[scan_tree] Error with file {path}: {e}")
 
         return all_matches

@@ -10,9 +10,9 @@ class FileReader:
     def validate(file_path: str):
         """Validate that the path exists and points to a regular file."""
         if not os.path.exists(file_path):
-            raise FileNotFoundError(f"Plik {file_path} nie istnieje")
+            raise FileNotFoundError(f"The file {file_path} does not exist")
         if not os.path.isfile(file_path):
-            raise ValueError(f"{file_path} nie jest plikiem")
+            raise ValueError(f"{file_path} is not a file")
 
     @staticmethod
     def chunks(file_path: str, chunk_size: int = None) -> Iterable[bytes]:

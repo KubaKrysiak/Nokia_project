@@ -48,7 +48,7 @@ class PythonEngine(RegexEngine):
                     0,            # flags        
                     None                  
                 )
-    # stream jest oszukany - buforujemy wszystko i skanujemy na raz
+    # The stream is fake—we buffer everything and scan it all at once.
     def scan_stream(self, data_chunks: Iterable[bytes], callback: Callable, context: Any = None) -> None:
        
         if not self.compiled_patterns:

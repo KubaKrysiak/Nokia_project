@@ -25,7 +25,7 @@ class FileRegex():
                     return True
         return False
     def elements(self):
-        patterns=[] #potem popraw na choose_elements
+        patterns=[] #then correct it in choose_elements
         with open(self.plik, "r",encoding="utf-8") as f:
             for line in f:
                 text = line.strip()

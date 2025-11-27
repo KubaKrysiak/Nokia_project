@@ -3,19 +3,19 @@ from typing import List, Callable, Any, Iterable
 
 
 class RegexEngine(ABC):
-    """Abstrakcyjna klasa bazowa dla silników regex"""
+    """Abstract base class for regex engines"""
     
     @abstractmethod
     def compile_patterns(self, patterns: List[bytes], ids: List[int] = None) -> None:
-        """Kompiluje wzorce regex"""
+        """Compiles regex patterns"""
         pass
     
     @abstractmethod
     def scan(self, data: bytes, callback: Callable) -> None:
-        """Skanuje dane i wywołuje callback przy dopasowaniu"""
+        """Scans data and triggers a callback when a match is found"""
         pass
     
     @abstractmethod
     def scan_stream(self, data_chunks: Iterable[bytes], callback: Callable, context: Any = None) -> None:
-        """Skanuje dane w trybie strumieniowym - przyjmuje iterowalne chunki danych"""
+        """Scans data in streaming mode - accepts iterable chunks of data"""
         pass

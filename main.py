@@ -52,7 +52,7 @@ def main():
         required=False,
         help="save results to file (default: stdout)"
     )
-    # dodanie cmd do wyboru silnika
+    # add cmd 
     run.add_argument(
         "--engine",
         choices=["hyperscan", "python"],
@@ -63,7 +63,7 @@ def main():
     args = parser.parse_args()
 
     if args.command == "run":
-        #wybor silnika
+        #engie
         if args.engine == "python":
             engine = PythonEngine()
         else:
