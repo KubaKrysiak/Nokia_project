@@ -47,11 +47,6 @@ def main():
         help="file or directory to scan"
     )
 
-    run.add_argument(
-        "-o", "--output",
-        required=False,
-        help="save results to file (default: stdout)"
-    )
     # add cmd 
     run.add_argument(
         "--engine",
@@ -79,28 +74,13 @@ def main():
             patterns = fr.elements()
             scanner.compile_patterns(patterns)
 
-        results = []
-
         if os.path.isfile(args.target):
-            results = scanner.scan_file(args.target)
+            scanner.scan_file(args.target)
 
         elif os.path.isdir(args.target):
-            results = scanner.scan_tree(args.target)
+            scanner.scan_tree(args.target)
         else:
             print(f"cannot access '{args.target}': No such file or directory")
-
-        if args.output is None:
-            out = sys.stdout
-        else:
-            out = open(args.output, "w")
-
-        for result in results:
-            match = match_to_string(result['pattern_id'], result['start'],
-                                    result['end'], result['filename'])
-            print(match, file=out)
-
-        if out is not sys.stdout:
-            out.close()
 
     elif args.command == "build":
         fr = FileRegex(args.source)
