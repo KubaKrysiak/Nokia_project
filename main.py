@@ -5,6 +5,7 @@ from file_scanner import FileScanner
 from file_regex.file_regex import FileRegex
 from engines.python_engine import PythonEngine
 from engines.hs_engine import HyperscanEngine
+from file_scanner_pool import FileScannerPool
 
 
 def match_to_string(pattern_id, start, end, filename):
@@ -47,17 +48,19 @@ def main():
         help="file or directory to scan"
     )
 
-    run.add_argument(
-        "-o", "--output",
-        required=False,
-        help="save results to file (default: stdout)"
-    )
     # add cmd 
     run.add_argument(
         "--engine",
         choices=["hyperscan", "python"],
         default="hyperscan",
         help="regex engine to use (default: hyperscan)"
+    )
+
+    # add Pool
+    run.add_argument(
+        "--pool",
+        action="store_true",
+        help="enable verbose output"
     )
 
     args = parser.parse_args()
@@ -68,39 +71,34 @@ def main():
             engine = PythonEngine()
         else:
             engine = HyperscanEngine()
-        scanner = FileScanner(engine=engine)
 
-        try:
-            scanner.engine.load_db(args.config)
-        except Exception:
-            sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+        if args.pool:
+            if os.path.isfile(args.target):
+                FileScannerPool.scan_file(args.config, engine, args.target)
 
-            fr = FileRegex(args.config)
-            patterns = fr.elements()
-            scanner.compile_patterns(patterns)
-
-        results = []
-
-        if os.path.isfile(args.target):
-            results = scanner.scan_file(args.target)
-
-        elif os.path.isdir(args.target):
-            results = scanner.scan_tree(args.target)
+            elif os.path.isdir(args.target):
+                FileScannerPool.scan_tree(args.config, engine, args.target)
+            else:
+                print(f"cannot access '{args.target}': No such file or directory")
         else:
-            print(f"cannot access '{args.target}': No such file or directory")
+            scanner = FileScanner(engine=engine)
 
-        if args.output is None:
-            out = sys.stdout
-        else:
-            out = open(args.output, "w")
+            try:
+                scanner.engine.load_db(args.config)
+            except Exception:
+                sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-        for result in results:
-            match = match_to_string(result['pattern_id'], result['start'],
-                                    result['end'], result['filename'])
-            print(match, file=out)
+                fr = FileRegex(args.config)
+                patterns = fr.elements()
+                scanner.compile_patterns(patterns)
 
-        if out is not sys.stdout:
-            out.close()
+            if os.path.isfile(args.target):
+                scanner.scan_file(args.target)
+
+            elif os.path.isdir(args.target):
+                scanner.scan_tree(args.target)
+            else:
+                print(f"cannot access '{args.target}': No such file or directory")
 
     elif args.command == "build":
         fr = FileRegex(args.source)
