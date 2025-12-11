@@ -143,7 +143,6 @@ def benchmark_stream_precompiled(
     """
     proc = _get_proc()
 
-    # --- compilation ---
     engine = engine_cls()
 
     cpu_before = proc.cpu_times()
@@ -161,7 +160,6 @@ def benchmark_stream_precompiled(
     compile_cpu_sys = cpu_after.system - cpu_before.system
     compile_mem_delta = mem_after - mem_before
 
-    # --- streaming scan ---
     scan_times: List[float] = []
 
     cpu_before_scan = proc.cpu_times()
