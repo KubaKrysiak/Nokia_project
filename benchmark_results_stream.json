@@ -1,0 +1,338 @@
+[
+  {
+    "engine": "PythonEngine",
+    "mode": "stream_precompiled",
+    "repeats": 5,
+    "compile": {
+      "wall_time": 0.0002409959997748956,
+      "cpu_user": 0.0,
+      "cpu_sys": 0.0,
+      "mem_delta": 0,
+      "mem_after": 17301504
+    },
+    "scan": {
+      "times_wall": [
+        0.0017332249990431592,
+        0.0016988159986794926,
+        0.0014368490010383539,
+        0.0014157209989207331,
+        0.0014205970001057722
+      ],
+      "avg_time_wall": 0.0015410415995575021,
+      "cpu_user": 0.009999999999999995,
+      "cpu_sys": 0.010000000000000002,
+      "mem_delta": 0,
+      "mem_after": 17301504
+    },
+    "scenario": "small_no_matches",
+    "source": "generated"
+  },
+  {
+    "engine": "HyperscanEngine",
+    "mode": "stream_precompiled",
+    "repeats": 5,
+    "compile": {
+      "wall_time": 0.025241944997105747,
+      "cpu_user": 0.010000000000000009,
+      "cpu_sys": 0.009999999999999995,
+      "mem_delta": 3932160,
+      "mem_after": 21233664
+    },
+    "scan": {
+      "times_wall": [
+        0.002185375997214578,
+        0.0006389850022969767,
+        0.0006478059985965956,
+        0.0006320630018308293,
+        0.0006265670017455705
+      ],
+      "avg_time_wall": 0.00094615940033691,
+      "cpu_user": 0.0,
+      "cpu_sys": 0.0,
+      "mem_delta": 655360,
+      "mem_after": 21889024
+    },
+    "scenario": "small_no_matches",
+    "source": "generated"
+  },
+  {
+    "engine": "PythonEngine",
+    "mode": "stream_precompiled",
+    "repeats": 5,
+    "compile": {
+      "wall_time": 2.2100997739471495e-05,
+      "cpu_user": 0.0,
+      "cpu_sys": 0.0,
+      "mem_delta": 0,
+      "mem_after": 21889024
+    },
+    "scan": {
+      "times_wall": [
+        0.0025473130008322187,
+        0.0024416759988525882,
+        0.002602240001579048,
+        0.002658329001860693,
+        0.0025763049998204224
+      ],
+      "avg_time_wall": 0.002565172600588994,
+      "cpu_user": 0.0,
+      "cpu_sys": 0.009999999999999995,
+      "mem_delta": 0,
+      "mem_after": 21889024
+    },
+    "scenario": "small_few_matches",
+    "source": "generated"
+  },
+  {
+    "engine": "HyperscanEngine",
+    "mode": "stream_precompiled",
+    "repeats": 5,
+    "compile": {
+      "wall_time": 0.009094255001400597,
+      "cpu_user": 0.009999999999999995,
+      "cpu_sys": 0.0,
+      "mem_delta": 0,
+      "mem_after": 21889024
+    },
+    "scan": {
+      "times_wall": [
+        0.001987701001780806,
+        0.0006625569985772017,
+        0.0006409060006262735,
+        0.0006534139974974096,
+        0.0006401159989763983
+      ],
+      "avg_time_wall": 0.0009169387994916178,
+      "cpu_user": 0.009999999999999995,
+      "cpu_sys": 0.0,
+      "mem_delta": 262144,
+      "mem_after": 22151168
+    },
+    "scenario": "small_few_matches",
+    "source": "generated"
+  },
+  {
+    "engine": "PythonEngine",
+    "mode": "stream_precompiled",
+    "repeats": 5,
+    "compile": {
+      "wall_time": 1.5771998732816428e-05,
+      "cpu_user": 0.0,
+      "cpu_sys": 0.0,
+      "mem_delta": 0,
+      "mem_after": 22151168
+    },
+    "scan": {
+      "times_wall": [
+        0.001986638999369461,
+        0.001888261002022773,
+        0.0018090909979946446,
+        0.001961202000529738,
+        0.0018712769997364376
+      ],
+      "avg_time_wall": 0.0019032939999306109,
+      "cpu_user": 0.0,
+      "cpu_sys": 0.009999999999999995,
+      "mem_delta": 0,
+      "mem_after": 22151168
+    },
+    "scenario": "small_many_matches",
+    "source": "generated"
+  },
+  {
+    "engine": "HyperscanEngine",
+    "mode": "stream_precompiled",
+    "repeats": 5,
+    "compile": {
+      "wall_time": 0.004751296000904404,
+      "cpu_user": 0.0,
+      "cpu_sys": 0.0,
+      "mem_delta": 0,
+      "mem_after": 22151168
+    },
+    "scan": {
+      "times_wall": [
+        0.0009972259977075737,
+        0.0009299609992012847,
+        0.0009541750005155336,
+        0.0009756949984875973,
+        0.001005977002932923
+      ],
+      "avg_time_wall": 0.0009726067997689825,
+      "cpu_user": 0.0,
+      "cpu_sys": 0.0,
+      "mem_delta": 0,
+      "mem_after": 22151168
+    },
+    "scenario": "small_many_matches",
+    "source": "generated"
+  },
+  {
+    "engine": "PythonEngine",
+    "mode": "stream_precompiled",
+    "repeats": 5,
+    "compile": {
+      "wall_time": 1.8826998712029308e-05,
+      "cpu_user": 0.0,
+      "cpu_sys": 0.0,
+      "mem_delta": 0,
+      "mem_after": 23461888
+    },
+    "scan": {
+      "times_wall": [
+        0.06114217000140343,
+        0.04939735999869299,
+        0.04815293899810058,
+        0.04766744100197684,
+        0.05016274100125884
+      ],
+      "avg_time_wall": 0.05130453020028654,
+      "cpu_user": 0.15,
+      "cpu_sys": 0.11000000000000001,
+      "mem_delta": 0,
+      "mem_after": 23461888
+    },
+    "scenario": "large_no_matches",
+    "source": "generated"
+  },
+  {
+    "engine": "HyperscanEngine",
+    "mode": "stream_precompiled",
+    "repeats": 5,
+    "compile": {
+      "wall_time": 0.009080892999918433,
+      "cpu_user": 0.010000000000000009,
+      "cpu_sys": 0.0,
+      "mem_delta": 131072,
+      "mem_after": 23592960
+    },
+    "scan": {
+      "times_wall": [
+        0.02922106799815083,
+        0.022051403997465968,
+        0.02097943400076474,
+        0.030129005997878266,
+        0.02114648100177874
+      ],
+      "avg_time_wall": 0.024705478599207707,
+      "cpu_user": 0.08000000000000002,
+      "cpu_sys": 0.03999999999999998,
+      "mem_delta": 0,
+      "mem_after": 23592960
+    },
+    "scenario": "large_no_matches",
+    "source": "generated"
+  },
+  {
+    "engine": "PythonEngine",
+    "mode": "stream_precompiled",
+    "repeats": 5,
+    "compile": {
+      "wall_time": 2.508600300643593e-05,
+      "cpu_user": 0.0,
+      "cpu_sys": 0.0,
+      "mem_delta": 0,
+      "mem_after": 23986176
+    },
+    "scan": {
+      "times_wall": [
+        0.06165125000188709,
+        0.0475805140013108,
+        0.04741131599803339,
+        0.049384059999283636,
+        0.06273568699907628
+      ],
+      "avg_time_wall": 0.05375256539991824,
+      "cpu_user": 0.17999999999999994,
+      "cpu_sys": 0.09999999999999998,
+      "mem_delta": 0,
+      "mem_after": 23986176
+    },
+    "scenario": "large_few_matches",
+    "source": "generated"
+  },
+  {
+    "engine": "HyperscanEngine",
+    "mode": "stream_precompiled",
+    "repeats": 5,
+    "compile": {
+      "wall_time": 0.01256326899965643,
+      "cpu_user": 0.010000000000000009,
+      "cpu_sys": 0.0,
+      "mem_delta": 0,
+      "mem_after": 23986176
+    },
+    "scan": {
+      "times_wall": [
+        0.04646319099992979,
+        0.041359142000146676,
+        0.04377414899863652,
+        0.027886003997991793,
+        0.024707453001610702
+      ],
+      "avg_time_wall": 0.036837987799663095,
+      "cpu_user": 0.14,
+      "cpu_sys": 0.0,
+      "mem_delta": 0,
+      "mem_after": 23986176
+    },
+    "scenario": "large_few_matches",
+    "source": "generated"
+  },
+  {
+    "engine": "PythonEngine",
+    "mode": "stream_precompiled",
+    "repeats": 5,
+    "compile": {
+      "wall_time": 1.626299854251556e-05,
+      "cpu_user": 0.010000000000000009,
+      "cpu_sys": 0.0,
+      "mem_delta": 0,
+      "mem_after": 23986176
+    },
+    "scan": {
+      "times_wall": [
+        0.07638361100180191,
+        0.07489051700031268,
+        0.07101785900158575,
+        0.0649519960024918,
+        0.06904519599993364
+      ],
+      "avg_time_wall": 0.07125783580122516,
+      "cpu_user": 0.3500000000000001,
+      "cpu_sys": 0.0,
+      "mem_delta": 0,
+      "mem_after": 23986176
+    },
+    "scenario": "large_many_matches",
+    "source": "generated"
+  },
+  {
+    "engine": "HyperscanEngine",
+    "mode": "stream_precompiled",
+    "repeats": 5,
+    "compile": {
+      "wall_time": 0.006320485001197085,
+      "cpu_user": 0.010000000000000009,
+      "cpu_sys": 0.0,
+      "mem_delta": 0,
+      "mem_after": 23986176
+    },
+    "scan": {
+      "times_wall": [
+        0.04425022999930661,
+        0.03374180899845669,
+        0.03251123900190578,
+        0.03310005100138369,
+        0.031549672999972245
+      ],
+      "avg_time_wall": 0.035030600400205,
+      "cpu_user": 0.16999999999999993,
+      "cpu_sys": 0.0,
+      "mem_delta": 0,
+      "mem_after": 23986176
+    },
+    "scenario": "large_many_matches",
+    "source": "generated"
+  }
+]
